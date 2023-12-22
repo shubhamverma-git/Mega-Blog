@@ -1,5 +1,5 @@
 import conf from "../conf/conf"; // step 1: import conf to get all database id
-import { client, Account, ID } from "appwrite";
+import { Client, Account, ID } from "appwrite";
 
 // better approach to write quality code
 
