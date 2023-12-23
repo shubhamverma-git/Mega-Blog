@@ -63,8 +63,8 @@ export class AuthService {
 
   // step 10: creating logout method s
   async logout() {
-    await this.account.deleteSessions();
     try {
+      await this.account.deleteSessions();
     } catch (error) {
       console.log("Appwrite service  :: logout :: error", error);
     }
@@ -73,4 +73,4 @@ export class AuthService {
 
 const authService = new AuthService(); // step 3:  creating object authService
 
-export default AuthService;
+export default authService;
