@@ -21,7 +21,7 @@ export class AuthService {
 
   // step 6: creating method to call appwrite services and put them into a wrapper
 
-  async createAccount({ email, password, name }) {
+  async signup({ email, password, name }) {
     try {
       const userAccount = await this.account.create(
         ID.unique(),

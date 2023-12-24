@@ -6,6 +6,7 @@ import { login, logout } from "./store/authSlice";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router";
+import Input from "./components/Input/Input";
 
 function App() {
   const [loading, setLoading] = useState(true); // we are using loading if the server takes time to give data
@@ -33,6 +34,7 @@ function App() {
         <Header />
         <main>{/* <Outlet /> */}</main>
         <Footer />
+        <Input />
       </div>
     </div>
   ) : null;
