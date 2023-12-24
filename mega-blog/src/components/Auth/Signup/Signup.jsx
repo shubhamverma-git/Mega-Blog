@@ -66,7 +66,7 @@ function Signup() {
                 })}
               />
             </div>
-            <di className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <label htmlFor="email">Email</label>
               <Input
                 id="email"
@@ -83,7 +83,7 @@ function Signup() {
                   },
                 })}
               />
-            </di    v>
+            </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="password">Password</label>
               <Input
