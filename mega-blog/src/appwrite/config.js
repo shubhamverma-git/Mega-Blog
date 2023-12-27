@@ -1,4 +1,4 @@
-import conf from "../conf/conf"; // step 1: import conf to get all database id
+import conf from "../conf/conf.js"; // step 1: import conf to get all database id
 import { Client, ID, Databases, Storage, Query } from "appwrite"; // step 2: import services
 
 // step 3: export class
@@ -24,7 +24,6 @@ export class Service {
         slug, // whatever the value of slug is passed that will be document ID
         {
           title,
-          slug,
           content,
           featuredImage,
           status,
@@ -39,7 +38,6 @@ export class Service {
   // step 8: method to update post
   async updatePost(slug, { title, content, featuredImage, status }) {
     // here we are passing slug in first param to take access of document id
-
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
@@ -85,7 +83,7 @@ export class Service {
   async getAllPost(queries = [Query.equal("status", "active")]) {
     try {
       return await this.databases.listDocuments(
-        ocnf.appwriteDatabaseId,
+        conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         queries
       );
@@ -112,7 +110,7 @@ export class Service {
   // step 13: method to delete file
   async deleteFile(fileId) {
     try {
-      return await this.storage.deleteFile(conf.appwriteBucketId, fileId);
+      await this.storage.deleteFile(conf.appwriteBucketId, fileId);
       return true;
     } catch (error) {
       console.log("Appwrite service :: deleteFile :: error", error);
@@ -126,5 +124,5 @@ export class Service {
   }
 }
 
-const service = new service();
+const service = new Service();
 export default service; // step 4: export service
